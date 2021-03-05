@@ -1,0 +1,6 @@
+---
+# tasks file for cesnet.memcached
+
+- import_tasks: memcached.yml
+  tags:
+    - memcached

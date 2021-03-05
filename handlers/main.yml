@@ -1,0 +1,9 @@
+---
+# handlers file for cesnet.memcached
+
+- name: "MEMCACHED - Restart"
+  community.docker.docker_compose:
+    project_src: "{{ memcached_path }}"
+    state: present
+    restarted: yes
+  listen: "docker memcached restart"

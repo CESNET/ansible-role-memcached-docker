@@ -1,0 +1,14 @@
+{{ ansible_managed | comment}}
+
+version: '3'
+services:
+  memcached:
+    image: {{ memcached_docker_image }}
+    container_name: memcached
+    ports:
+      - "11211:11211"
+    restart: always
+    logging:
+      driver: "syslog"
+      options:
+        tag: "memcached"

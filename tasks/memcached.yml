@@ -1,0 +1,30 @@
+---
+
+- name: "MEMCACHED - Ensure that directory is created"
+  file:
+    path: "{{ memcached_path }}"
+    owner: root
+    group: root
+    mode: 0755
+    state: directory
+  notify: "docker memcached restart"
+
+- name: "MEMCACHED - Install docker image"
+  docker_image:
+    name: "{{ memcached_docker_image }}"
+    source: pull
+  notify: "docker memcached restart"
+
+- name: "MEMCACHED - Create docker-compose.yml from template"
+  template:
+    src: "{{ memcached_docker_compose_template }}.j2"
+    dest: "{{ memcached_path }}/docker-compose.yml"
+    owner: root
+    group: root
+    mode: 0644
+  notify: "docker memcached restart"
+
+- name: "MEMCACHED - Start docker image"
+  community.docker.docker_compose:
+    project_src: "{{ memcached_path }}"
+    state: present

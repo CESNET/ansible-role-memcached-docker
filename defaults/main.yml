@@ -1,0 +1,11 @@
+---
+# defaults file for cesnet.memcached
+
+# Main directory
+memcached_path: "/opt/memcached"
+
+# Specify the docker image to use
+memcached_docker_image: "memcached:latest"
+
+# Default docker-compose template which will be used
+memcached_docker_compose_template: "default-docker-compose.yml"

@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  role_name: memcached_docker
+  author: Pavel Vyskocil <Pavel.Vyskocil@cesnet.cz>
+  description: "Role for install and run memcached in docker."
+  readme: "README.md"
+  company: CESNET z.s.p.o.
+  license: Apache-2.0
+  min_ansible_version: 2.9
+  galaxy_tags: 
+    - memcached
+    - cesnet
+
+dependencies: 
+  - community.docker
